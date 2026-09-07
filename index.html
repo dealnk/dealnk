@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Deal NK Official Website</title>
-<link rel="icon" type="image/png" href="favicon.png">
+<title>DEAL NK</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -625,14 +624,8 @@
   </div>
   <div class="panel-body wrap contact-grid">
     <div>
-      <!--
-        este formulario no envía nada por sí solo (es html estático).
-        conéctalo gratis con formspree.io:
-        1) crea una cuenta en formspree.io
-        2) copia el "endpoint" que te dan
-        3) pégalo en action="" de abajo, sustituyendo TU_ENDPOINT_AQUI
-      -->
-      <form action="https://formspree.io/f/TU_ENDPOINT_AQUI" method="POST">
+      <!-- Formulario conectado a Formspree. Configura el correo receptor desde tu panel de Formspree. -->
+      <form id="contactForm" action="https://formspree.io/f/xaeypwyp" method="POST">
         <div>
           <label for="name">name</label>
           <input type="text" id="name" name="name" required>
@@ -655,6 +648,7 @@
           <textarea id="message" name="message" required></textarea>
         </div>
         <button type="submit" class="submit-btn">send</button>
+        <p id="formStatus" role="status" aria-live="polite" style="margin:0;color:var(--blue);font-family:'Space Mono', monospace;font-size:0.8rem;"></p>
       </form>
     </div>
     <div class="contact-side">
@@ -721,6 +715,37 @@
   if(valid.includes(initial)){
     activateTab(initial, false);
   }
+
+  const contactForm = document.getElementById('contactForm');
+  const formStatus = document.getElementById('formStatus');
+
+  contactForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const submitButton = contactForm.querySelector('.submit-btn');
+    const formData = new FormData(contactForm);
+
+    submitButton.disabled = true;
+    submitButton.textContent = 'sending...';
+    formStatus.textContent = '';
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: { Accept: 'application/json' }
+      });
+
+      if (!response.ok) throw new Error('Form submission failed');
+
+      contactForm.reset();
+      formStatus.textContent = 'message sent. thank you.';
+    } catch (error) {
+      formStatus.textContent = 'something went wrong. please try again.';
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = 'send';
+    }
+  });
 </script>
 
 </body>
