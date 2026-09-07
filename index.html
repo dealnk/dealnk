@@ -156,6 +156,7 @@
     border-color:#fff;
     transform:translateY(-1px);
   }
+  .menu-overlay{display:none;}
 
   /* ---------- PANELS ---------- */
   .panel{display:none;}
@@ -428,25 +429,42 @@
     .topbar-inner{justify-content:space-between;}
     .menu-wrap{order:initial;}
     .tabs{
-      position:absolute;
-      top:calc(100% + 10px);
+      position:fixed;
+      top:0;
+      bottom:0;
       left:auto;
       right:0;
-      min-width:200px;
+      width:min(86vw, 390px);
+      min-width:0;
       background:var(--ink);
       flex-direction:column;
       gap:0;
-      max-height:0;
-      overflow:hidden;
+      height:100dvh;
+      max-height:none;
+      overflow-y:auto;
+      padding:82px 0 24px;
       opacity:0;
       pointer-events:none;
-      transform:translateX(10px);
+      transform:translateX(105%);
       transform-origin:right top;
-      transition:max-height .25s ease, opacity .2s ease, transform .25s ease;
-      box-shadow:0 12px 24px rgba(0,0,0,0.3);
+      transition:opacity .2s ease, transform .3s cubic-bezier(.2,.8,.2,1);
+      box-shadow:-12px 0 28px rgba(0,0,0,0.34);
+      z-index:2;
     }
-    .tabs.open{max-height:320px;opacity:1;pointer-events:auto;transform:translateX(0);}
-    .menu-wrap:hover .tabs{max-height:320px;opacity:1;pointer-events:auto;transform:translateX(0);}
+    .tabs.open{opacity:1;pointer-events:auto;transform:translateX(0);}
+    .menu-wrap:hover .tabs{opacity:1;pointer-events:auto;transform:translateX(0);}
+    .menu-wrap.menu-force-closed .tabs{opacity:0;pointer-events:none;transform:translateX(105%);}
+    .menu-overlay{
+      display:block;
+      position:fixed;
+      inset:0;
+      z-index:90;
+      background:rgba(10,13,18,0.58);
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .25s ease;
+    }
+    .menu-overlay.open{opacity:1;pointer-events:auto;}
     .tab-btn{
       width:100%;
       text-align:left;
@@ -468,6 +486,8 @@
       height:36px;
       padding:0;
       border:none;
+      position:relative;
+      z-index:3;
     }
     .nav-toggle span{
       display:block;
@@ -508,6 +528,8 @@
     </div>
   </div>
 </div>
+
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
 
 <!-- ================= ABOUT ================= -->
 <section class="panel active" id="panel-about">
@@ -728,6 +750,7 @@
   const panels = document.querySelectorAll('.panel');
   const navToggle = document.getElementById('navToggle');
   const tabsList = document.getElementById('tabs');
+  const menuOverlay = document.getElementById('menuOverlay');
 
   function activateTab(name, updateHash){
     document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -740,6 +763,8 @@
       history.replaceState(null, '', '#' + name);
     }
     tabsList.classList.remove('open');
+    menuOverlay.classList.remove('open');
+    menuWrap.classList.remove('menu-force-closed');
     navToggle.setAttribute('aria-expanded', false);
     window.scrollTo({top:0, behavior:'instant'});
   }
@@ -753,7 +778,20 @@
 
   navToggle.addEventListener('click', () => {
     const isOpen = tabsList.classList.toggle('open');
+    menuWrap.classList.toggle('menu-force-closed', !isOpen);
+    menuOverlay.classList.toggle('open', isOpen);
     navToggle.setAttribute('aria-expanded', isOpen);
+  });
+
+  menuOverlay.addEventListener('click', () => {
+    tabsList.classList.remove('open');
+    menuOverlay.classList.remove('open');
+    menuWrap.classList.add('menu-force-closed');
+    navToggle.setAttribute('aria-expanded', false);
+  });
+
+  menuWrap.addEventListener('mouseleave', () => {
+    menuWrap.classList.remove('menu-force-closed');
   });
 
   const initial = window.location.hash.replace('#','');
