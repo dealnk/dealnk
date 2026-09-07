@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <g fill="none" stroke="#0a0d12" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Telecaster, arriba a la izquierda: cuerpo, pickguard, puente, cuerdas y clavijas -->
+    <g transform="translate(74 88) rotate(-18 137 160)" stroke-width="2" opacity=".20">
+      <path d="M141 18l-6 222M151 18l-6 222M137 19h18m-18 12h18"/>
+      <path d="M137 19l-5-21 29 0 5 21M132-2l-13-11m40 11 13-11m-39 21-15 7m54-7 15 7"/>
+      <path d="M117 235c-41-17-75 18-60 58 12 32 49 23 72 3 19-16 35-8 52 3 25 17 61 2 56-30-4-27-29-40-55-33-20 5-37 8-65-1z"/>
+      <path d="M114 243c-33-11-57 16-47 42 10 25 39 18 59 0 16-14 34-6 51 5 20 13 47 1 45-22-2-21-25-31-45-25-24 7-39 7-63 0z"/>
+      <path d="M125 226l49 0 18 28-73 0zM135 232h37l13 16h-58z"/>
+      <path d="M132 257h51m-41-7v14m10-14v14m10-14v14m10-14v14"/>
+      <path d="M107 245c20-8 51-8 75 4l-6 38c-20-9-40-9-59-1z"/>
+      <circle cx="185" cy="276" r="6"/><circle cx="205" cy="269" r="6"/>
+      <path d="M193 251l8 18m-18-18 8 19M101 238l25-10"/>
+      <path d="M119 42l30 0m-31 13h30m-31 13h30m-31 13h30m-31 13h30m-31 13h30" opacity=".55"/>
+    </g>
+    <!-- cuchilla de afeitar clásica, arriba derecha: doble filo, ranuras y perforaciones -->
+    <g transform="translate(875 112) rotate(13 138 93)" stroke-width="2.1" opacity=".21">
+      <path d="M25 24h222l29 69-29 69H25L-4 93zM35 35h202l22 58-22 58H35L12 93z"/>
+      <path d="M49 65h174M49 121h174M69 93h134"/>
+      <path d="M70 62v62m22-62v62m94-62v62m22-62v62"/>
+      <rect x="112" y="73" width="48" height="40" rx="4"/>
+      <circle cx="79" cy="93" r="10"/><circle cx="193" cy="93" r="10"/>
+      <path d="M116 79h40m-40 8h40m-40 8h40m-40 8h40m-40 8h40M26 24L12 93l14 69m221-138 14 69-14 69" opacity=".65"/>
+      <path d="M41 43l18-8m-18 18 18-8m161-10 18 8m-18 2 18 8"/>
+    </g>
+    <!-- cigarro, abajo con filtro, brasa, ceniza y humo -->
+    <g transform="translate(766 682) rotate(-7 171 49)" stroke-width="2" opacity=".20">
+      <path d="M10 40h264v38H10zM10 40h49v38H10zM274 42c28-6 42 4 67-1m-62 0 7 36m11-36 8 36m11-36 8 34"/>
+      <path d="M24 47v24m10-24v24m10-24v24m10-24v24"/>
+      <path d="M69 48h191m-191 9h191m-191 9h191" opacity=".55"/>
+      <path d="M100 33c-18-20 19-31 0-54-17-20 25-29 3-55M110 34c-18-20 19-31 0-54-17-20 25-29 3-55M121 34c-18-20 19-31 0-54-17-20 25-29 3-55"/>
+      <path d="M278 49l38 20m-35-25 42 20m-34-28 36 19"/>
+    </g>
+    <!-- rayones secos y aislados: el centro queda deliberadamente vacío -->
+    <g stroke-width="2" opacity=".14">
+      <path d="M25 506l175-67m-167 77 176-67m-168 77 175-67m-165 77 174-67"/>
+      <path d="M988 502l174-44m-168 55 173-44m-168 55 174-44m-168 55 173-44"/>
+      <path d="M50 758l212-55m-207 66 212-55m-206 66 212-55"/>
+      <path d="M1038 786l116-101m-106 110 115-101m-105 111 115-101"/>
+      <path d="M365 72l94-25m-88 35 94-25m-88 35 94-25"/>
+      <path d="M570 820l152-37m-146 48 152-37m-146 48 152-37"/>
+      <path d="M275 170l33-34m-27 5 27 29m-13-45 1 57M604 118l20 51m-39-31 58 10m-53 21 48-41"/>
+    </g>
+  </g>
+</svg>
