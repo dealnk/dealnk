@@ -764,7 +764,7 @@
     }
     tabsList.classList.remove('open');
     menuOverlay.classList.remove('open');
-    menuWrap.classList.remove('menu-force-closed');
+    menuWrap.classList.add('menu-force-closed');
     navToggle.setAttribute('aria-expanded', false);
     window.scrollTo({top:0, behavior:'instant'});
   }
