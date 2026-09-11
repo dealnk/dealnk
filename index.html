@@ -258,42 +258,68 @@
     font-size:1.6rem;
     margin-bottom:20px;
   }
-  .release{
+  .release-grid{
     display:grid;
-    grid-template-columns:50px 1fr auto auto;
-    gap:18px;
+    grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+    gap:28px;
+  }
+  .release-tile{
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+  }
+  .release-cover-link{
+    text-decoration:none;
+    color:inherit;
+    display:block;
+  }
+  .release-cover{
+    aspect-ratio:1;
+    width:100%;
+    background:var(--paper);
+    border:3px solid var(--ink);
+    overflow:hidden;
+    display:flex;
     align-items:center;
-    padding:20px 0;
-    border-top:1px solid var(--line);
+    justify-content:center;
+    box-shadow:8px 8px 0 var(--blue);
+    transition:transform .18s ease, box-shadow .18s ease;
   }
-  .release:last-child{border-bottom:1px solid var(--line);}
-  .release-num{
+  .release-cover img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+  .release-cover.is-empty span{
     font-family:'Space Mono', monospace;
-    color:var(--blue);
-    font-size:0.95rem;
-  }
-  .release-name{font-size:1.3rem;}
-  .release-desc{
-    font-size:0.9rem;
+    font-size:0.72rem;
     color:var(--text-dim);
-    margin-top:4px;
-    max-width:48ch;
+    padding:16px;
+    text-align:center;
   }
-  .format-tag{
+  .release-cover-link:hover .release-cover{
+    transform:translate(-3px, -3px);
+    box-shadow:11px 11px 0 var(--blue);
+  }
+  .release-tile h3{
+    font-size:1.35rem;
+    margin:16px 0 12px;
+  }
+  .tile-links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .tile-links a{
     font-family:'Space Mono', monospace;
     font-size:0.68rem;
-    background:var(--blue-tint);
-    color:var(--blue-deep);
-    padding:5px 10px;
-    white-space:nowrap;
+    color:var(--ink);
+    text-decoration:none;
+    border:1.5px solid var(--ink);
+    padding:6px 10px;
+    transition:background .15s ease, color .15s ease;
   }
-  .status-tag{
-    font-family:'Space Mono', monospace;
-    font-size:0.68rem;
-    border:1px solid var(--ink);
-    padding:5px 10px;
-    white-space:nowrap;
-  }
+  .tile-links a:hover{background:var(--ink);color:#fff;}
   .platform-row{
     display:flex;
     flex-wrap:wrap;
@@ -552,8 +578,9 @@
     .about-grid, .contact-grid{grid-template-columns:1fr;}
     .about-side, .contact-side{border-left:none;padding-left:0;border-top:3px solid var(--ink);padding-top:20px;}
     .merch-grid{grid-template-columns:1fr;}
-    .release{grid-template-columns:32px 1fr;}
-    .format-tag, .status-tag{grid-column:2;justify-self:start;margin-top:6px;}
+    .release-grid{grid-template-columns:repeat(2, 1fr);gap:18px;}
+    .release-cover{border-width:2px;box-shadow:5px 5px 0 var(--blue);}
+    .release-cover-link:hover .release-cover{box-shadow:7px 7px 0 var(--blue);}
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -633,33 +660,36 @@
   <div class="panel-body wrap">
 
     <div class="music-block">
-      <h3>releases &amp; physical formats</h3>
-      <div class="release">
-        <span class="release-num">01</span>
-        <div>
-          <div class="release-name">still hangover</div>
-          <div class="release-desc">6-track ep, the bridge before the album. pop-punk built off the "hangover cure" era&mdash;muted yellows, dirty whites, harsh shadows.</div>
-        </div>
-        <span class="format-tag">vinyl / cd&mdash;tba</span>
-        <span class="status-tag">coming soon</span>
-      </div>
-      <div class="release">
-        <span class="release-num">02</span>
-        <div>
-          <div class="release-name">nothin inside</div>
-          <div class="release-desc">debut full-length. the first record written entirely in english&mdash;pop-punk and alt-rock built on reinvention, strength, melancholy.</div>
-        </div>
-        <span class="format-tag">vinyl&mdash;tba</span>
-        <span class="status-tag">in the works</span>
-      </div>
-      <div class="release">
-        <span class="release-num">03</span>
-        <div>
-          <div class="release-name">loose tracks</div>
-          <div class="release-desc">a handful of standalone singles, dropping whenever they're ready&mdash;no calendar, just when it's right.</div>
-        </div>
-        <span class="format-tag">digital</span>
-        <span class="status-tag">tba</span>
+      <h3>releases</h3>
+      <div class="release-grid">
+        <article class="release-tile">
+          <a class="release-cover-link" href="releases/memorias-rotas.html">
+            <div class="release-cover">
+              <img src="assets/covers/memorias-rotas.jpg" alt="memorias rotas cover">
+            </div>
+            <h3>memorias rotas</h3>
+          </a>
+          <div class="tile-links">
+            <!-- sustituye cada href="#" cuando tengas el enlace real -->
+            <a href="#" target="_blank" rel="noopener">spotify</a>
+            <a href="#" target="_blank" rel="noopener">apple music</a>
+            <a href="#" target="_blank" rel="noopener">buy physical</a>
+          </div>
+        </article>
+
+        <article class="release-tile">
+          <a class="release-cover-link" href="releases/iris.html">
+            <div class="release-cover is-empty">
+              <span>cover tba</span>
+            </div>
+            <h3>iris</h3>
+          </a>
+          <div class="tile-links">
+            <a href="#" target="_blank" rel="noopener">spotify</a>
+            <a href="#" target="_blank" rel="noopener">apple music</a>
+            <a href="#" target="_blank" rel="noopener">buy physical</a>
+          </div>
+        </article>
       </div>
     </div>
 
