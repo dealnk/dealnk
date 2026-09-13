@@ -12,7 +12,7 @@
 
   :root{
     --ink:#0a0d12;
-    --bg:#bcc6d1;
+    --bg:#ffffff;
     --paper:#f5f3ef;
     --blue:#007fff;
     --brand-blue:#007fff;
@@ -29,10 +29,6 @@
   body{
     margin:0;
     background:var(--bg);
-    background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22220%22%20height%3D%22220%22%20viewBox%3D%220%200%20220%20220%22%3E%0A%3Cg%20fill%3D%22none%22%20stroke%3D%22%230a0d12%22%20stroke-width%3D%222.4%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20opacity%3D%220.13%22%3E%0A%3Cpath%20d%3D%22M10%2C24%20L28%2C6%20L46%2C26%20L64%2C6%20L82%2C24%22/%3E%0A%3Cpath%20d%3D%22M8%2C96%20Q26%2C84%2044%2C96%20T80%2C96%20T116%2C96%22/%3E%0A%3Cpath%20d%3D%22M150%2C34%20C160%2C14%20182%2C14%20182%2C34%20C182%2C54%20160%2C56%20148%2C40%20C142%2C30%20154%2C18%20166%2C28%22/%3E%0A%3Cpath%20d%3D%22M40%2C150%20C40%2C138%2052%2C132%2058%2C144%20C64%2C156%2052%2C168%2040%2C162%20C28%2C156%2034%2C138%2046%2C140%22/%3E%0A%3Cpath%20d%3D%22M150%2C150%20L150%2C174%20M138%2C162%20L162%2C162%20M141%2C153%20L159%2C171%20M141%2C171%20L159%2C153%22/%3E%0A%3Cpath%20d%3D%22M100%2C20%20C104%2C10%20116%2C10%20116%2C20%22/%3E%0A%3Cpath%20d%3D%22M186%2C110%20Q198%2C120%20186%2C132%20Q174%2C144%20186%2C154%22/%3E%0A%3Cpath%20d%3D%22M12%2C180%20L30%2C168%20L14%2C160%20L34%2C150%22/%3E%0A%3C/g%3E%0A%3C/svg%3E");
-    background-repeat:repeat;
-    background-size:280px 280px;
-    background-attachment:scroll;
     color:var(--text);
     font-family:'Work Sans', sans-serif;
     line-height:1.55;
@@ -398,18 +394,31 @@
     font-size:clamp(2.6rem, 9vw, 4.6rem);
     margin-top:38px;
   }
+  .listen-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    justify-content:center;
+    margin-top:32px;
+  }
   .listen-btn{
     display:inline-block;
-    margin-top:32px;
-    padding:16px 42px;
+    padding:15px 30px;
     background:var(--blue);
     color:#fff;
     text-decoration:none;
     font-family:'Space Mono', monospace;
-    font-size:0.95rem;
+    font-size:0.9rem;
     transition:background .15s ease, transform .15s ease;
   }
   .listen-btn:hover{background:var(--blue-deep);transform:translateY(-2px);}
+  .listen-btn-outline{
+    background:none;
+    border:2px solid rgba(255,255,255,0.4);
+    color:#fff;
+    padding:13px 28px;
+  }
+  .listen-btn-outline:hover{background:rgba(255,255,255,0.08);border-color:#fff;}
 
   /* ---------- MERCH ---------- */
   .merch-grid{
@@ -769,8 +778,13 @@
     <a href="#music" class="back-link" data-back="music">&larr; back to music</a>
     <div class="release-detail-cover" style="background-image:url('images/memorias-rotas.jpg');"></div>
     <h2 class="release-detail-title">memorias rotas</h2>
-    <!-- reemplaza este href con tu link real de streaming -->
-    <a class="listen-btn" href="#" target="_blank" rel="noopener">listen here</a>
+    <div class="listen-row">
+      <a class="listen-btn" href="https://open.spotify.com/track/6gZc5eMSmcTrGxpoz9TPOA?si=4a5695b9ca9c41f6" target="_blank" rel="noopener">spotify</a>
+      <a class="listen-btn" href="https://music.apple.com/es/song/memorias-rotas/1688788961" target="_blank" rel="noopener">apple music</a>
+      <a class="listen-btn" href="https://youtu.be/DRoCIECz7Sw?si=QA85j52rvNLKDnFG" target="_blank" rel="noopener">youtube</a>
+      <!-- de momento no hace nada; le meteremos el link más adelante -->
+      <a class="listen-btn listen-btn-outline" href="#">more links</a>
+    </div>
   </div>
 </section>
 
