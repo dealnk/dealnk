@@ -290,51 +290,12 @@
   .panel-body{padding:56px 0 110px;}
 
   /* ---------- ABOUT ---------- */
-  .about-grid{
-    display:grid;
-    grid-template-columns:1fr 1.3fr;
-    gap:64px;
-  }
-  .about-grid p{
+  .about-copy p{
     font-size:1.05rem;
     color:var(--text-dim);
-    max-width:60ch;
+    max-width:75ch;
+    margin:0 0 22px;
   }
-  .mantra{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    margin-bottom:8px;
-  }
-  .stamp{
-    font-family:'Space Mono', monospace;
-    font-size:0.72rem;
-    padding:5px 12px;
-    border:1.5px solid var(--blue);
-    color:var(--blue);
-    transform:rotate(-2deg);
-    display:inline-block;
-  }
-  .stamp:nth-child(2){transform:rotate(1.5deg);}
-  .stamp:nth-child(3){transform:rotate(-1deg);}
-  .refs{
-    margin-top:24px;
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-  }
-  .ref-chip{
-    font-family:'Space Mono', monospace;
-    font-size:0.72rem;
-    color:var(--text-dim);
-    border:1px solid var(--line);
-    padding:5px 10px;
-  }
-  .about-side{
-    border-left:3px solid var(--ink);
-    padding-left:24px;
-  }
-  .about-side .eyebrow{margin-bottom:14px;}
 
   /* ---------- MUSIC ---------- */
   .music-block{margin-bottom:56px;}
@@ -557,6 +518,23 @@
   }
   .shop-cta:hover{background:var(--blue-deep);}
 
+  .empty-state{
+    text-align:center;
+    max-width:520px;
+    margin:0 auto;
+    padding:70px 20px;
+  }
+  .empty-state .eyebrow{margin-bottom:18px;}
+  .empty-state h3{
+    font-size:clamp(1.9rem, 5vw, 2.6rem);
+    margin:0 0 16px;
+  }
+  .empty-state p{
+    color:var(--text-dim);
+    font-size:1.02rem;
+    margin:0;
+  }
+
   /* ---------- GENIUS ---------- */
   .genius-card{
     display:flex;
@@ -573,6 +551,10 @@
   .genius-embed-placeholder{
     border:1px dashed var(--line);
     padding:24px 28px;
+  }
+  .genius-embed-box{
+    border:1px solid var(--line);
+    padding:24px 28px 8px;
   }
 
   /* ---------- CONTACT ---------- */
@@ -762,8 +744,8 @@
       transition:transform .2s ease, opacity .2s ease;
     }
     .nav-toggle:hover{background:transparent;transform:none;}
-    .about-grid, .contact-grid{grid-template-columns:1fr;}
-    .about-side, .contact-side{border-left:none;padding-left:0;border-top:3px solid var(--ink);padding-top:20px;}
+    .contact-grid{grid-template-columns:1fr;}
+    .contact-side{border-left:none;padding-left:0;border-top:3px solid var(--ink);padding-top:20px;}
     .merch-grid{grid-template-columns:1fr;}
     .release-grid{grid-template-columns:1fr;}
     .support-grid{grid-template-columns:1fr;}
@@ -814,28 +796,10 @@
     <span class="eyebrow">the story</span>
     <h2>about.</h2>
   </div>
-  <div class="panel-body wrap about-grid">
-    <div>
-      <p>deal nk started out rapping in spanish&mdash;then tore it all down. almost every old release is gone, replaced by a full reinvention: pop-punk and alt-rock, written and sung entirely in english, aimed at an audience an ocean away from home.</p>
-      <p>the songs live in the same place as the reference points: self-destructive cycles, burnout, defiance toward anyone counting you out&mdash;delivered with imagery over statement, and a hook built to survive a room full of strangers screaming it back.</p>
-      <div class="refs">
-        <span class="ref-chip">mgk</span>
-        <span class="ref-chip">mod sun</span>
-        <span class="ref-chip">avril lavigne</span>
-        <span class="ref-chip">yungblud</span>
-        <span class="ref-chip">lil peep</span>
-        <span class="ref-chip">bad omens</span>
-      </div>
-    </div>
-    <div class="about-side">
-      <span class="eyebrow">what this is built on</span>
-      <div class="mantra">
-        <span class="stamp">reinvention</span>
-        <span class="stamp">strength</span>
-        <span class="stamp">melancholy</span>
-      </div>
-      <p style="color:var(--text-dim);font-size:0.95rem;margin-top:16px;">spanish-born, english-sung. pop-punk built on burnout, defiance and melody that hits like a hangover.</p>
-    </div>
+  <div class="panel-body wrap about-copy">
+    <p>deal nk is a spanish artist, songwriter, and musician building his sound around pop punk, emo, alternative rock, and modern pop. originally rooted in spanish rap, he gradually found himself drawn toward a different kind of songwriting&mdash;one built around guitars, sad melodies, raw lyrics, and stories that feel personal without losing their honesty. influenced by the 2000s pop punk scene and the broader american alternative scene, his music brings that energy into his own experiences, mistakes, and emotions.</p>
+    <p>after years of making music in spanish, deal nk is now entering a new chapter, writing and recording in english. the shift is not about leaving his past behind, but about finding a sound and language that feel closer to the artist he is becoming. &ldquo;the people who cried what i cried later, they wrote that in english and that made me cry.&rdquo; now, he wants to create that same feeling for someone else.</p>
+    <p>his current era is centered around nothin' inside, an upcoming album about what happens when a relationship ends but the feelings don't disappear with it. the record moves through obsession, idealization, anger, distance, self-destruction, emptiness, and eventually acceptance, blending energetic pop punk with alternative rock, emo songwriting, and stripped-back acoustic moments. more than a collection of songs, nothin' inside is a story about losing someone, losing parts of yourself along the way, and figuring out what is left.</p>
   </div>
 </section>
 
@@ -905,20 +869,16 @@
         <p style="color:var(--text-dim);font-size:0.95rem;margin:0;">full lyrics, annotations and track credits.</p>
       </div>
       <!-- reemplaza este href con el link real de tu perfil de genius -->
-      <a class="shop-cta" href="#" target="_blank" rel="noopener">view profile</a>
+      <a class="shop-cta" href="https://genius.com/artists/Deal-nk" target="_blank" rel="noopener">view profile</a>
     </div>
 
     <!--
       cuando tengas una canción publicada en genius, puedes incrustar
       su letra directamente aquí:
       1) en la página de la canción en genius, pulsa "share" -> "embed"
-      2) copia el <div> + <script> que te da genius
-      3) pégalo dentro de este bloque, sustituyendo el genius-embed-placeholder de abajo
+      2) copia el <blockquote> + <script> que te da genius
+      3) pégalo dentro de un div.genius-embed-box aquí abajo
     -->
-    <div class="genius-embed-placeholder">
-      <span class="eyebrow" style="margin:0 0 6px;">song embed&mdash;coming soon</span>
-      <p style="color:var(--text-dim);font-size:0.9rem;margin:0;">once a track has lyrics live on genius, its embedded lyric widget will go here.</p>
-    </div>
   </div>
 </section>
 
@@ -929,31 +889,11 @@
     <h2>merch.</h2>
   </div>
   <div class="panel-body wrap">
-    <div class="merch-grid">
-      <div class="merch-card">
-        <div class="merch-thumb"><span>tee&mdash;photo tba</span></div>
-        <div class="merch-info">
-          <h4>tee</h4>
-          <span class="eyebrow" style="margin:0;">price tba</span>
-        </div>
-      </div>
-      <div class="merch-card">
-        <div class="merch-thumb"><span>hoodie&mdash;photo tba</span></div>
-        <div class="merch-info">
-          <h4>hoodie</h4>
-          <span class="eyebrow" style="margin:0;">price tba</span>
-        </div>
-      </div>
-      <div class="merch-card">
-        <div class="merch-thumb"><span>vinyl&mdash;photo tba</span></div>
-        <div class="merch-info">
-          <h4>vinyl</h4>
-          <span class="eyebrow" style="margin:0;">price tba</span>
-        </div>
-      </div>
+    <div class="empty-state">
+      <span class="eyebrow">merch&mdash;coming soon</span>
+      <h3>nothing to drop yet.</h3>
+      <p>the merch closet is still empty&mdash;first pieces are in the works. check back once there's something worth wearing.</p>
     </div>
-    <!-- reemplaza este href con el link real a tu tienda (shopify, bandcamp, etc) -->
-    <a class="shop-cta" href="#" target="_blank" rel="noopener">shop merch</a>
   </div>
 </section>
 
