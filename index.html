@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Deal NK Official Website</title>
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%0A%3Crect%20width%3D%2264%22%20height%3D%2264%22%20fill%3D%22%230a0d12%22/%3E%0A%3Ctext%20x%3D%2232%22%20y%3D%2241%22%20font-family%3D%22Arial%2C%20Helvetica%2C%20sans-serif%22%20font-weight%3D%22800%22%20font-size%3D%2226%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%3Enk%3C/text%3E%0A%3Crect%20x%3D%2214%22%20y%3D%2247%22%20width%3D%2236%22%20height%3D%224%22%20fill%3D%22%23007fff%22/%3E%0A%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -29,9 +29,9 @@
   body{
     margin:0;
     background:var(--bg);
-    background-image:url('notebook-scribbles.svg');
+    background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22220%22%20height%3D%22220%22%20viewBox%3D%220%200%20220%20220%22%3E%0A%3Cg%20fill%3D%22none%22%20stroke%3D%22%230a0d12%22%20stroke-width%3D%222.4%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20opacity%3D%220.13%22%3E%0A%3Cpath%20d%3D%22M10%2C24%20L28%2C6%20L46%2C26%20L64%2C6%20L82%2C24%22/%3E%0A%3Cpath%20d%3D%22M8%2C96%20Q26%2C84%2044%2C96%20T80%2C96%20T116%2C96%22/%3E%0A%3Cpath%20d%3D%22M150%2C34%20C160%2C14%20182%2C14%20182%2C34%20C182%2C54%20160%2C56%20148%2C40%20C142%2C30%20154%2C18%20166%2C28%22/%3E%0A%3Cpath%20d%3D%22M40%2C150%20C40%2C138%2052%2C132%2058%2C144%20C64%2C156%2052%2C168%2040%2C162%20C28%2C156%2034%2C138%2046%2C140%22/%3E%0A%3Cpath%20d%3D%22M150%2C150%20L150%2C174%20M138%2C162%20L162%2C162%20M141%2C153%20L159%2C171%20M141%2C171%20L159%2C153%22/%3E%0A%3Cpath%20d%3D%22M100%2C20%20C104%2C10%20116%2C10%20116%2C20%22/%3E%0A%3Cpath%20d%3D%22M186%2C110%20Q198%2C120%20186%2C132%20Q174%2C144%20186%2C154%22/%3E%0A%3Cpath%20d%3D%22M12%2C180%20L30%2C168%20L14%2C160%20L34%2C150%22/%3E%0A%3C/g%3E%0A%3C/svg%3E");
     background-repeat:repeat;
-    background-size:1200px 900px;
+    background-size:280px 280px;
     background-attachment:scroll;
     color:var(--text);
     font-family:'Work Sans', sans-serif;
@@ -258,68 +258,42 @@
     font-size:1.6rem;
     margin-bottom:20px;
   }
-  .release-grid{
+  .release{
     display:grid;
-    grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
-    gap:28px;
-  }
-  .release-tile{
-    display:flex;
-    flex-direction:column;
-    min-width:0;
-  }
-  .release-cover-link{
-    text-decoration:none;
-    color:inherit;
-    display:block;
-  }
-  .release-cover{
-    aspect-ratio:1;
-    width:100%;
-    background:var(--paper);
-    border:3px solid var(--ink);
-    overflow:hidden;
-    display:flex;
+    grid-template-columns:50px 1fr auto auto;
+    gap:18px;
     align-items:center;
-    justify-content:center;
-    box-shadow:8px 8px 0 var(--blue);
-    transition:transform .18s ease, box-shadow .18s ease;
+    padding:20px 0;
+    border-top:1px solid var(--line);
   }
-  .release-cover img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-  }
-  .release-cover.is-empty span{
+  .release:last-child{border-bottom:1px solid var(--line);}
+  .release-num{
     font-family:'Space Mono', monospace;
-    font-size:0.72rem;
+    color:var(--blue);
+    font-size:0.95rem;
+  }
+  .release-name{font-size:1.3rem;}
+  .release-desc{
+    font-size:0.9rem;
     color:var(--text-dim);
-    padding:16px;
-    text-align:center;
+    margin-top:4px;
+    max-width:48ch;
   }
-  .release-cover-link:hover .release-cover{
-    transform:translate(-3px, -3px);
-    box-shadow:11px 11px 0 var(--blue);
-  }
-  .release-tile h3{
-    font-size:1.35rem;
-    margin:16px 0 12px;
-  }
-  .tile-links{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-  }
-  .tile-links a{
+  .format-tag{
     font-family:'Space Mono', monospace;
     font-size:0.68rem;
-    color:var(--ink);
-    text-decoration:none;
-    border:1.5px solid var(--ink);
-    padding:6px 10px;
-    transition:background .15s ease, color .15s ease;
+    background:var(--blue-tint);
+    color:var(--blue-deep);
+    padding:5px 10px;
+    white-space:nowrap;
   }
-  .tile-links a:hover{background:var(--ink);color:#fff;}
+  .status-tag{
+    font-family:'Space Mono', monospace;
+    font-size:0.68rem;
+    border:1px solid var(--ink);
+    padding:5px 10px;
+    white-space:nowrap;
+  }
   .platform-row{
     display:flex;
     flex-wrap:wrap;
@@ -338,6 +312,104 @@
     transition:background .15s ease, color .15s ease;
   }
   .platform-link:hover{background:var(--ink);color:#fff;}
+
+  /* ---------- RELEASE GRID ---------- */
+  .release-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:24px;
+  }
+  .release-card{
+    display:block;
+    text-decoration:none;
+    color:inherit;
+    cursor:pointer;
+    background:none;
+    border:none;
+    padding:0;
+    font:inherit;
+    text-align:left;
+  }
+  .release-cover{
+    aspect-ratio:1;
+    background-size:cover;
+    background-position:center;
+    border:1px solid var(--line);
+    transition:transform .2s ease;
+  }
+  .release-card:hover .release-cover{transform:scale(1.02);}
+  .release-card-title{
+    font-family:'Anton', sans-serif;
+    font-weight:400;
+    text-transform:lowercase;
+    font-size:1.1rem;
+    margin-top:12px;
+  }
+  .release-card-tba{cursor:default;}
+  .release-card-tba .release-cover{
+    background:var(--paper);
+    border:1px dashed var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+  }
+  .release-card-tba .release-cover span{
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    color:var(--text-dim);
+  }
+  .release-card-tba:hover .release-cover{transform:none;}
+
+  /* ---------- RELEASE DETAIL (full screen) ---------- */
+  .release-detail{
+    background:var(--ink);
+    min-height:100vh;
+  }
+  .release-detail-inner{
+    max-width:640px;
+    margin:0 auto;
+    padding:56px 24px 100px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+  }
+  .back-link{
+    align-self:flex-start;
+    color:rgba(255,255,255,0.65);
+    text-decoration:none;
+    font-family:'Space Mono', monospace;
+    font-size:0.85rem;
+    margin-bottom:44px;
+    transition:color .15s ease;
+  }
+  .back-link:hover{color:#fff;}
+  .release-detail-cover{
+    width:100%;
+    max-width:460px;
+    aspect-ratio:1;
+    background-size:cover;
+    background-position:center;
+    box-shadow:0 24px 60px rgba(0,0,0,0.45);
+  }
+  .release-detail-title{
+    color:#fff;
+    font-size:clamp(2.6rem, 9vw, 4.6rem);
+    margin-top:38px;
+  }
+  .listen-btn{
+    display:inline-block;
+    margin-top:32px;
+    padding:16px 42px;
+    background:var(--blue);
+    color:#fff;
+    text-decoration:none;
+    font-family:'Space Mono', monospace;
+    font-size:0.95rem;
+    transition:background .15s ease, transform .15s ease;
+  }
+  .listen-btn:hover{background:var(--blue-deep);transform:translateY(-2px);}
 
   /* ---------- MERCH ---------- */
   .merch-grid{
@@ -578,9 +650,9 @@
     .about-grid, .contact-grid{grid-template-columns:1fr;}
     .about-side, .contact-side{border-left:none;padding-left:0;border-top:3px solid var(--ink);padding-top:20px;}
     .merch-grid{grid-template-columns:1fr;}
-    .release-grid{grid-template-columns:repeat(2, 1fr);gap:18px;}
-    .release-cover{border-width:2px;box-shadow:5px 5px 0 var(--blue);}
-    .release-cover-link:hover .release-cover{box-shadow:7px 7px 0 var(--blue);}
+    .release-grid{grid-template-columns:1fr;}
+    .release{grid-template-columns:32px 1fr;}
+    .format-tag, .status-tag{grid-column:2;justify-self:start;margin-top:6px;}
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -660,36 +732,20 @@
   <div class="panel-body wrap">
 
     <div class="music-block">
-      <h3>releases</h3>
+      <h3>tracks &amp; albums</h3>
       <div class="release-grid">
-        <article class="release-tile">
-          <a class="release-cover-link" href="releases/memorias-rotas.html">
-            <div class="release-cover">
-              <img src="assets/covers/memorias-rotas.jpg" alt="memorias rotas cover">
-            </div>
-            <h3>memorias rotas</h3>
-          </a>
-          <div class="tile-links">
-            <!-- sustituye cada href="#" cuando tengas el enlace real -->
-            <a href="#" target="_blank" rel="noopener">spotify</a>
-            <a href="#" target="_blank" rel="noopener">apple music</a>
-            <a href="#" target="_blank" rel="noopener">buy physical</a>
-          </div>
-        </article>
-
-        <article class="release-tile">
-          <a class="release-cover-link" href="releases/iris.html">
-            <div class="release-cover is-empty">
-              <span>cover tba</span>
-            </div>
-            <h3>iris</h3>
-          </a>
-          <div class="tile-links">
-            <a href="#" target="_blank" rel="noopener">spotify</a>
-            <a href="#" target="_blank" rel="noopener">apple music</a>
-            <a href="#" target="_blank" rel="noopener">buy physical</a>
-          </div>
-        </article>
+        <a class="release-card" href="#release-memorias-rotas" data-release="memorias-rotas">
+          <div class="release-cover" style="background-image:url('images/memorias-rotas.jpg');"></div>
+          <div class="release-card-title">memorias rotas</div>
+        </a>
+        <div class="release-card release-card-tba">
+          <div class="release-cover"><span>photo tba</span></div>
+          <div class="release-card-title">tba</div>
+        </div>
+        <div class="release-card release-card-tba">
+          <div class="release-cover"><span>photo tba</span></div>
+          <div class="release-card-title">tba</div>
+        </div>
       </div>
     </div>
 
@@ -704,6 +760,17 @@
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- ================= RELEASE: MEMORIAS ROTAS ================= -->
+<section class="panel release-detail" id="panel-release-memorias-rotas">
+  <div class="release-detail-inner">
+    <a href="#music" class="back-link" data-back="music">&larr; back to music</a>
+    <div class="release-detail-cover" style="background-image:url('images/memorias-rotas.jpg');"></div>
+    <h2 class="release-detail-title">memorias rotas</h2>
+    <!-- reemplaza este href con tu link real de streaming -->
+    <a class="listen-btn" href="#" target="_blank" rel="noopener">listen here</a>
   </div>
 </section>
 
@@ -878,9 +945,42 @@
 
   const initial = window.location.hash.replace('#','');
   const valid = ['about','music','genius','merch','contact'];
-  if(valid.includes(initial)){
+  if(initial.startsWith('release-')){
+    showRelease(initial.replace('release-',''), false);
+  } else if(valid.includes(initial)){
     activateTab(initial, false);
   }
+
+  function showRelease(slug, updateHash){
+    panels.forEach(p => {
+      p.classList.toggle('active', p.id === 'panel-release-' + slug);
+    });
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.setAttribute('aria-selected', btn.dataset.tab === 'music');
+    });
+    if(updateHash){
+      history.replaceState(null, '', '#release-' + slug);
+    }
+    tabsList.classList.remove('open');
+    menuOverlay.classList.remove('open');
+    menuWrap.classList.add('menu-force-closed');
+    navToggle.setAttribute('aria-expanded', false);
+    window.scrollTo({top:0, behavior:'instant'});
+  }
+
+  document.querySelectorAll('[data-release]').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      showRelease(el.dataset.release, true);
+    });
+  });
+
+  document.querySelectorAll('.back-link').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      activateTab(el.dataset.back, true);
+    });
+  });
 
   function dismissUpdatesPopup(){
     updatesPopupHandled = true;
